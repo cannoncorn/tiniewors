@@ -158,7 +158,6 @@ namespace WarMapProxy {
     async function _onMsgMmSetMapName(e: egret.Event): Promise<void> {
         const data = e.data as NetMessage.MsgMmSetMapName.IS;
         if (!data.errorCode) {
-            await WarMapModel.updateOnSetMapName(data);
             Notify.dispatch(NotifyType.MsgMmSetMapName, data);
         }
     }

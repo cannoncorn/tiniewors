@@ -4109,6 +4109,102 @@ export declare namespace Map {
          */
         public toJSON(): { [k: string]: any };
     }
+
+    /** Properties of a MapFilter. */
+    interface IMapFilter {
+
+        /** MapFilter mapId */
+        mapId?: (number|null);
+
+        /** MapFilter isEnabled */
+        isEnabled?: (boolean|null);
+    }
+
+    /** Represents a MapFilter. */
+    class MapFilter implements IMapFilter {
+
+        /**
+         * Constructs a new MapFilter.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: Map.IMapFilter);
+
+        /** MapFilter mapId. */
+        public mapId: number;
+
+        /** MapFilter isEnabled. */
+        public isEnabled: boolean;
+
+        /**
+         * Creates a new MapFilter instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns MapFilter instance
+         */
+        public static create(properties?: Map.IMapFilter): Map.MapFilter;
+
+        /**
+         * Encodes the specified MapFilter message. Does not implicitly {@link Map.MapFilter.verify|verify} messages.
+         * @param message MapFilter message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: Map.IMapFilter, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified MapFilter message, length delimited. Does not implicitly {@link Map.MapFilter.verify|verify} messages.
+         * @param message MapFilter message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: Map.IMapFilter, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a MapFilter message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns MapFilter
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): Map.MapFilter;
+
+        /**
+         * Decodes a MapFilter message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns MapFilter
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): Map.MapFilter;
+
+        /**
+         * Verifies a MapFilter message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a MapFilter message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns MapFilter
+         */
+        public static fromObject(object: { [k: string]: any }): Map.MapFilter;
+
+        /**
+         * Creates a plain object from a MapFilter message. Also converts values to other types if specified.
+         * @param message MapFilter
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: Map.MapFilter, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this MapFilter to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
 }
 
 /** Properties of a WarEvent. */
@@ -42148,6 +42244,9 @@ export declare namespace NetMessage {
 
             /** S errorCode */
             errorCode?: (number|null);
+
+            /** S mapId */
+            mapId?: (number|null);
         }
 
         /** Represents a S. */
@@ -42161,6 +42260,9 @@ export declare namespace NetMessage {
 
             /** S errorCode. */
             public errorCode: number;
+
+            /** S mapId. */
+            public mapId: number;
 
             /**
              * Creates a new S instance using the specified properties.
@@ -42436,9 +42538,6 @@ export declare namespace NetMessage {
 
             /** S mapId */
             mapId?: (number|null);
-
-            /** S mapNameArray */
-            mapNameArray?: (Structure.ILanguageText[]|null);
         }
 
         /** Represents a S. */
@@ -42455,9 +42554,6 @@ export declare namespace NetMessage {
 
             /** S mapId. */
             public mapId: number;
-
-            /** S mapNameArray. */
-            public mapNameArray: Structure.ILanguageText[];
 
             /**
              * Creates a new S instance using the specified properties.

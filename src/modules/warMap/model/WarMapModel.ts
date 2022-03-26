@@ -9,8 +9,6 @@
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 namespace WarMapModel {
-    import ClientErrorCode      = TwnsClientErrorCode.ClientErrorCode;
-    import WarType              = Types.WarType;
     import IMapRawData          = ProtoTypes.Map.IMapRawData;
     import IMapBriefData        = ProtoTypes.Map.IMapBriefData;
     import IMapEditorData       = ProtoTypes.Map.IMapEditorData;
@@ -43,15 +41,6 @@ namespace WarMapModel {
         return _briefDataGetter.getData(mapId);
     }
 
-    export async function updateOnSetMapName(data: ProtoTypes.NetMessage.MsgMmSetMapName.IS): Promise<void> {
-        const mapId         = Helpers.getExisted(data.mapId, ClientErrorCode.WarMapModel_UpdateOnSetMapName_00);
-        const mapNameArray  = Helpers.getExisted(data.mapNameArray, ClientErrorCode.WarMapModel_UpdateOnSetMapName_01);
-        const mapBriefData  = await getBriefData(mapId);
-        (mapBriefData) && (mapBriefData.mapNameArray = mapNameArray);
-
-        const mapRawData = await getRawData(mapId);
-        (mapRawData) && (mapRawData.mapNameArray = mapNameArray);
-    }
     export async function updateOnAddWarRule(data: ProtoTypes.NetMessage.MsgMmAddWarRule.IS): Promise<void> {
         const mapId     = Helpers.getExisted(data.mapId);
         const warRule   = Helpers.getExisted(data.warRule);

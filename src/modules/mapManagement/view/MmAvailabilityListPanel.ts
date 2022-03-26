@@ -214,7 +214,7 @@ namespace TwnsMmAvailabilityListPanel {
                 { ui: this._btnNext,    callback: this._onTouchTapBtnNext },
             ]);
             this._setNotifyListenerArray([
-                { type: NotifyType.MsgMmSetMapName, callback: this._onNotifyMsgMmSetMapName },
+                { type: NotifyType.MsgMapGetBriefData, callback: this._onNotifyMsgMapGetBriefData },
             ]);
         }
 
@@ -231,8 +231,8 @@ namespace TwnsMmAvailabilityListPanel {
             TwnsPanelManager.open(TwnsPanelConfig.Dict.MmCommandPanel, { mapId: this._getData().mapId });
         }
 
-        private _onNotifyMsgMmSetMapName(e: egret.Event): void {
-            const data = e.data as ProtoTypes.NetMessage.MsgMmSetMapName.IS;
+        private _onNotifyMsgMapGetBriefData(e: egret.Event): void {
+            const data = e.data as ProtoTypes.NetMessage.MsgMapGetBriefData.IS;
             if (data.mapId === this._getData().mapId) {
                 this._updateView();
             }
